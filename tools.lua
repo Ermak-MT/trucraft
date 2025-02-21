@@ -1,6 +1,7 @@
--- локализация перевода
+-- Локализация перевода
 local S = minetest.get_translator("trucraft")
 
+--Усиленный каменный молот
 minetest.register_tool("trucraft:stone_club", {
 	description = S("Stone Tool"),
 	inventory_image = "poly_tcclub.png",
@@ -17,6 +18,7 @@ minetest.register_tool("trucraft:stone_club", {
 	sound = {breaks = "default_tool_breaks"},
 })
 
+-- Медный кинжал
 minetest.register_tool("trucraft:copper_knife", {
 	description = S("Copper Workblade"),
 	inventory_image = "poly_tccopperk.png",
@@ -32,6 +34,7 @@ minetest.register_tool("trucraft:copper_knife", {
 	sound = {breaks = "default_tool_breaks"},
 })
 
+-- Каменный молот
 minetest.register_tool("trucraft:stone_mallet", {
 	description = S("Reinforced Stone Mallet"),
 	inventory_image = "poly_tchammer.png",
@@ -47,6 +50,7 @@ minetest.register_tool("trucraft:stone_mallet", {
 	sound = {breaks = "default_tool_breaks"},
 })
 
+-- Ствльной молот
 minetest.register_tool("trucraft:steel_mallet", {
 	description = S("Steel Mallet"),
 	inventory_image = "poly_tchammer2.png",
@@ -62,6 +66,7 @@ minetest.register_tool("trucraft:steel_mallet", {
 	sound = {breaks = "default_tool_breaks"},
 })
 
+-- Улучшеная стальная кирка
 minetest.register_tool("trucraft:pick_steel", {
 	description = S("Enhanced Steel Pickaxe"),
 	inventory_image = "default_tool_steelpick.png^poly_tcpickd.png",
@@ -76,6 +81,7 @@ minetest.register_tool("trucraft:pick_steel", {
 	sound = {breaks = "default_tool_breaks"},
 })
 
+-- Улучшенный стальной топор
 minetest.register_tool("trucraft:axe_steel", {
 	description = S("Enhanced Steel Axe"),
 	inventory_image = "default_tool_steelaxe.png^poly_tcaxed.png",
@@ -90,6 +96,7 @@ minetest.register_tool("trucraft:axe_steel", {
 	sound = {breaks = "default_tool_breaks"},
 })
 
+-- Улучшенный стальной меч
 minetest.register_tool("trucraft:sword_steel", {
 	description = S("Enhanced Steel Sword"),
 	inventory_image = "default_tool_steelsword.png^poly_tcswordd.png",
@@ -104,6 +111,7 @@ minetest.register_tool("trucraft:sword_steel", {
 	sound = {breaks = "default_tool_breaks"},
 })
 
+-- Клинок
 minetest.register_tool("trucraft:knife", {
 	description = S("Steel Flip Knife"),
 	inventory_image = "poly_tcknife.png",

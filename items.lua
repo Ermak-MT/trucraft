@@ -1,6 +1,7 @@
--- локализация перевода
+-- Локализация перевода
 local S = minetest.get_translator("trucraft")
 
+-- Функции
 minetest.register_craftitem("trucraft:string", {
 	description = S("Plant Fiber"),
 	inventory_image="poly_tcstring2.png",
@@ -11,22 +12,6 @@ minetest.register_craftitem("trucraft:string", {
 			return itemstack
 		end
 	end
-})
-
-minetest.override_item("default:grass_1", {
-    on_use = function(itemstack, player, pointed_thing)
-		player:get_inventory():add_item("main", "trucraft:string")
-		itemstack:take_item()
-		return itemstack
-	end,
-})
-
-minetest.override_item("default:dry_grass_1", {
-    on_use = function(itemstack, player, pointed_thing)
-		player:get_inventory():add_item("main", "trucraft:string")
-		itemstack:take_item()
-		return itemstack
-	end,
 })
 
 minetest.register_item(":", {
@@ -45,21 +30,7 @@ minetest.register_item(":", {
 	}
 })
 
-minetest.register_craftitem("trucraft:fabric", {
-	description = S("Grassweave Mat"),
-	inventory_image="poly_tcstring3.png"
-})
-
-minetest.register_craftitem("trucraft:sieve", {
-	description = S("Basic Sieve"),
-	inventory_image="poly_tcsieve.png",
-})
-
-minetest.register_craftitem("trucraft:shaft", {
-	description = S("Basic Wooden Shaft"),
-	inventory_image="poly_tcshaft.png",
-})
-
+-- Переопределение элементов
 minetest.override_item("default:axe_stone", {
     groups={axe=1},
 })
@@ -76,6 +47,23 @@ minetest.override_item("default:axe_mese", {
     groups={axe=1},
 })
 
+minetest.override_item("default:grass_1", {
+    on_use = function(itemstack, player, pointed_thing)
+		player:get_inventory():add_item("main", "trucraft:string")
+		itemstack:take_item()
+		return itemstack
+	end,
+})
+
+minetest.override_item("default:dry_grass_1", {
+    on_use = function(itemstack, player, pointed_thing)
+		player:get_inventory():add_item("main", "trucraft:string")
+		itemstack:take_item()
+		return itemstack
+	end,
+})
+
+-- Компоненты
 minetest.register_craftitem("trucraft:copper_blade", {
 	description = S("Crude Copper Blade"),
 	inventory_image="poly_tccopperb.png",
@@ -165,4 +153,19 @@ minetest.register_craftitem("trucraft:polymer", {
 minetest.register_craftitem("trucraft:plastic", {
 	description= S("Plastic Sheet"),
 	inventory_image="poly_tclump4.png",
+})
+
+minetest.register_craftitem("trucraft:fabric", {
+	description = S("Grassweave Mat"),
+	inventory_image="poly_tcstring3.png"
+})
+
+minetest.register_craftitem("trucraft:sieve", {
+	description = S("Basic Sieve"),
+	inventory_image="poly_tcsieve.png",
+})
+
+minetest.register_craftitem("trucraft:shaft", {
+	description = S("Basic Wooden Shaft"),
+	inventory_image="poly_tcshaft.png",
 })

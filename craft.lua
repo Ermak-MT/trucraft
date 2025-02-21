@@ -1,6 +1,7 @@
--- локализация перевода
+-- Локализация первода
 local S = minetest.get_translator("trucraft")
 
+-- Unified inventory (Optional)
 if minetest.get_modpath("unified_inventory") then
 
 	unified_inventory.register_craft_type("trucraft:finding", {
@@ -255,6 +256,7 @@ else
 	
 end
 
+-- Таблицы
 truCraft.basic_crafts={}
 truCraft.advanced_crafts={}
 truCraft.chops={}
@@ -262,7 +264,176 @@ truCraft.anvil={}
 truCraft.anvil2={}
 truCraft.rack={}
 
+-- Стандартные рецепты крафтов
+minetest.register_craft({
+	type="cooking",
+	output="default:bronze_ingot",
+	recipe="trucraft:bronze"
+})
 
+minetest.register_craft({
+	type="cooking",
+	output="trucraft:plastic",
+	recipe="trucraft:polymer"
+})
+
+minetest.register_craft({
+	type="cooking",
+	output="trucraft:glue",
+	recipe="trucraft:grass_lump"
+})
+	
+-- Регистрация крафтов для рубки
+truCraft.register_chop({
+	item="default:tree",
+	result="default:wood 2"
+})
+
+truCraft.register_chop({
+	item="default:acacia_tree",
+	result="default:acacia_wood 2"
+})
+
+truCraft.register_chop({
+	item="default:aspen_tree",
+	result="default:aspen_wood 2"
+})
+
+truCraft.register_chop({
+	item="default:pine_tree",
+	result="default:pine_wood 2"
+})
+
+truCraft.register_chop({
+	item="default:jungletree",
+	result="default:junglewood 2"
+})
+
+truCraft.register_chop({
+	item="default:wood",
+	result="default:stick 2"
+})
+
+truCraft.register_chop({
+	item="default:acacia_wood",
+	result="default:stick 2"
+})
+
+truCraft.register_chop({
+	item="default:aspen_wood",
+	result="default:stick 2"
+})
+
+truCraft.register_chop({
+	item="default:pine_wood",
+	result="default:stick 2"
+})
+
+truCraft.register_chop({
+	item="default:junglewood",
+	result="default:stick 2"
+})
+
+-- Регистрация крафтов ковки
+truCraft.register_beat({
+	item="default:copper_ingot",
+	result="trucraft:copper_blade"
+})
+
+truCraft.register_beat({
+	item="default:bronze_ingot",
+	result="trucraft:bronze_plate"
+})
+
+truCraft.register_beat({
+	item="trucraft:bronze_plate",
+	result="trucraft:bronze_wedge"
+})
+
+truCraft.register_beat({
+	item="trucraft:bronze_wedge",
+	result="trucraft:bronze_hook"
+})
+
+truCraft.register_beat({
+	item="trucraft:bronze_hook",
+	result="trucraft:bronze_blade"
+})
+
+truCraft.register_beat({
+	item="default:grass_1",
+	result="trucraft:grass_lump"
+})
+
+truCraft.register_beat({
+	item="default:grass_2",
+	result="trucraft:grass_lump"
+})
+
+truCraft.register_beat({
+	item="default:grass_3",
+	result="trucraft:grass_lump"
+})
+
+truCraft.register_beat({
+	item="default:grass_4",
+	result="trucraft:grass_lump"
+})
+
+truCraft.register_beat({
+	item="default:grass_5",
+	result="trucraft:grass_lump"
+})
+
+truCraft.register_beat({
+	item="default:diamond",
+	result="trucraft:grit"
+})
+
+truCraft.register_beat({
+	item="default:coal_lump",
+	result="trucraft:coal_dust"
+})
+
+truCraft.register_beat2({
+	item="default:steel_ingot",
+	result="trucraft:steel_plate"
+})
+
+truCraft.register_beat2({
+	item="trucraft:steel_plate",
+	result="trucraft:steel_wedge"
+})
+
+truCraft.register_beat2({
+	item="trucraft:steel_wedge",
+	result="trucraft:steel_hook"
+})
+
+truCraft.register_beat2({
+	item="trucraft:steel_hook",
+	result="trucraft:steel_blade"
+})
+
+truCraft.register_beat2({
+	item="trucraft:steel_blade",
+	result="trucraft:steel_rod"
+})
+
+-- Сушилка
+truCraft.register_dry({
+	item="default:papyrus",
+	result="default:paper",
+	time=3
+})
+
+truCraft.register_dry({
+	item="trucraft:glue",
+	result="trucraft:polymer",
+	time=6
+})
+	
+-- Регистрация базовых крафтов
 truCraft.register_basic_craft({
 	item1="trucraft:shaft", 
 	item2="trucraft:rock_stone", 
@@ -351,93 +522,12 @@ truCraft.register_basic_craft({
 	result="trucraft:bronze"
 })
 
-truCraft.register_chop({
-	item="default:tree",
-	result="default:wood 2"
-})
-
-truCraft.register_chop({
-	item="default:acacia_tree",
-	result="default:acacia_wood 2"
-})
-
-truCraft.register_chop({
-	item="default:aspen_tree",
-	result="default:aspen_wood 2"
-})
-
-truCraft.register_chop({
-	item="default:pine_tree",
-	result="default:pine_wood 2"
-})
-
-truCraft.register_chop({
-	item="default:jungletree",
-	result="default:junglewood 2"
-})
-
-truCraft.register_chop({
-	item="default:wood",
-	result="default:stick 2"
-})
-
-truCraft.register_chop({
-	item="default:acacia_wood",
-	result="default:stick 2"
-})
-
-truCraft.register_chop({
-	item="default:aspen_wood",
-	result="default:stick 2"
-})
-
-truCraft.register_chop({
-	item="default:pine_wood",
-	result="default:stick 2"
-})
-
-truCraft.register_chop({
-	item="default:junglewood",
-	result="default:stick 2"
-})
-
-truCraft.register_beat({
-	item="default:copper_ingot",
-	result="trucraft:copper_blade"
-})
-
 truCraft.register_basic_craft({
 	item1="trucraft:shaft", 
 	item2="trucraft:copper_blade", 
 	item3="", 
 	item4="trucraft:string2",
 	result="trucraft:copper_knife"
-})
-
-minetest.register_craft({
-	type="cooking",
-	output="default:bronze_ingot",
-	recipe="trucraft:bronze"
-})
-
-truCraft.register_beat({
-	item="default:bronze_ingot",
-	result="trucraft:bronze_plate"
-})
-
-truCraft.register_beat({
-	item="trucraft:bronze_plate",
-	result="trucraft:bronze_wedge"
-})
-
-truCraft.register_beat({
-	item="trucraft:bronze_wedge",
-	result="trucraft:bronze_hook"
-})
-
-truCraft.register_beat({
-	item="trucraft:bronze_hook",
-	result="trucraft:bronze_blade"
 })
 
 truCraft.register_basic_craft({
@@ -472,43 +562,6 @@ truCraft.register_basic_craft({
 	result="default:sword_bronze"
 })
 
-truCraft.register_advanced_craft({
-	item1="trucraft:shaft2", 
-	item2="trucraft:string3", 
-	item3="default:steel_ingot", 
-	item4="default:steel_ingot",
-	item5="trucraft:rock_stone", 
-	item6="trucraft:rock_stone", 
-	item7="default:steel_ingot", 
-	item8="default:steel_ingot",
-	result="trucraft:steel_mallet"
-})
-
-truCraft.register_beat2({
-	item="default:steel_ingot",
-	result="trucraft:steel_plate"
-})
-
-truCraft.register_beat2({
-	item="trucraft:steel_plate",
-	result="trucraft:steel_wedge"
-})
-
-truCraft.register_beat2({
-	item="trucraft:steel_wedge",
-	result="trucraft:steel_hook"
-})
-
-truCraft.register_beat2({
-	item="trucraft:steel_hook",
-	result="trucraft:steel_blade"
-})
-
-truCraft.register_beat2({
-	item="trucraft:steel_blade",
-	result="trucraft:steel_rod"
-})
-
 truCraft.register_basic_craft({
 	item1="trucraft:shaft2", 
 	item2="trucraft:steel_plate", 
@@ -525,15 +578,6 @@ truCraft.register_basic_craft({
 	result="default:axe_steel"
 })
 
-truCraft.register_advanced_craft({
-	item1="trucraft:shaft2", 
-	item2="trucraft:steel_hook", 
-	item3="trucraft:steel_hook", 
-	item4="trucraft:string3",
-	result="default:pick_steel",
-	item5="trucraft:glue"
-})
-
 truCraft.register_basic_craft({
 	item1="trucraft:shaft2", 
 	item2="trucraft:steel_blade", 
@@ -542,45 +586,82 @@ truCraft.register_basic_craft({
 	result="default:sword_steel"
 })
 
-truCraft.register_beat({
-	item="default:grass_1",
-	result="trucraft:grass_lump"
+truCraft.register_basic_craft({
+	item1="trucraft:shaft2", 
+	item2="trucraft:shaft2", 
+	item3="trucraft:wood", 
+	item4="trucraft:string3",
+	result="trucraft:rack"
 })
 
-truCraft.register_beat({
-	item="default:grass_2",
-	result="trucraft:grass_lump"
+truCraft.register_basic_craft({
+	item1="trucraft:glue", 
+	item2="trucraft:coal_dust", 
+	item3="default:wood", 
+	item4="",
+	result="trucraft:wood"
 })
 
-truCraft.register_beat({
-	item="default:grass_3",
-	result="trucraft:grass_lump"
+truCraft.register_basic_craft({
+	item1="trucraft:glue", 
+	item2="trucraft:coal_dust", 
+	item3="default:acacia_wood", 
+	item4="",
+	result="trucraft:wood"
 })
 
-truCraft.register_beat({
-	item="default:grass_4",
-	result="trucraft:grass_lump"
+truCraft.register_basic_craft({
+	item1="trucraft:glue", 
+	item2="trucraft:coal_dust", 
+	item3="default:pine_wood", 
+	item4="",
+	result="trucraft:wood"
 })
 
-truCraft.register_beat({
-	item="default:grass_5",
-	result="trucraft:grass_lump"
+truCraft.register_basic_craft({
+	item1="trucraft:glue", 
+	item2="trucraft:coal_dust", 
+	item3="default:junglewood", 
+	item4="",
+	result="trucraft:wood"
 })
 
-truCraft.register_beat({
-	item="default:diamond",
-	result="trucraft:grit"
+truCraft.register_basic_craft({
+	item1="trucraft:glue", 
+	item2="trucraft:coal_dust", 
+	item3="default:aspen_wood", 
+	item4="default:sword_bronze",
+	result="trucraft:wood"
 })
 
-truCraft.register_beat({
-	item="default:coal_lump",
-	result="trucraft:coal_dust"
+truCraft.register_basic_craft({
+	item1="trucraft:plastic", 
+	item2="trucraft:steel_blade", 
+	item3="trucraft:steel_rod", 
+	item4="trucraft:steel_wedge",
+	result="trucraft:knife"
 })
 
-minetest.register_craft({
-	type="cooking",
-	output="trucraft:glue",
-	recipe="trucraft:grass_lump"
+-- Регистрация расширеного крафта
+truCraft.register_advanced_craft({
+	item1="trucraft:shaft2", 
+	item2="trucraft:string3", 
+	item3="default:steel_ingot", 
+	item4="default:steel_ingot",
+	item5="trucraft:rock_stone", 
+	item6="trucraft:rock_stone", 
+	item7="default:steel_ingot", 
+	item8="default:steel_ingot",
+	result="trucraft:steel_mallet"
+})
+
+truCraft.register_advanced_craft({
+	item1="trucraft:shaft2", 
+	item2="trucraft:steel_hook", 
+	item3="trucraft:steel_hook", 
+	item4="trucraft:string3",
+	result="default:pick_steel",
+	item5="trucraft:glue"
 })
 
 truCraft.register_advanced_craft({
@@ -656,76 +737,12 @@ truCraft.register_advanced_craft({
 	result="trucraft:deeps"
 })
 
-truCraft.register_dry({
-	item="default:papyrus",
-	result="default:paper",
-	time=3
-})
-
-truCraft.register_basic_craft({
-	item1="trucraft:shaft2", 
-	item2="trucraft:shaft2", 
-	item3="trucraft:wood", 
-	item4="trucraft:string3",
-	result="trucraft:rack"
-})
-
-truCraft.register_basic_craft({
-	item1="trucraft:glue", 
-	item2="trucraft:coal_dust", 
-	item3="default:wood", 
-	item4="",
-	result="trucraft:wood"
-})
-
-truCraft.register_basic_craft({
-	item1="trucraft:glue", 
-	item2="trucraft:coal_dust", 
-	item3="default:acacia_wood", 
-	item4="",
-	result="trucraft:wood"
-})
-
-truCraft.register_basic_craft({
-	item1="trucraft:glue", 
-	item2="trucraft:coal_dust", 
-	item3="default:pine_wood", 
-	item4="",
-	result="trucraft:wood"
-})
-
-truCraft.register_basic_craft({
-	item1="trucraft:glue", 
-	item2="trucraft:coal_dust", 
-	item3="default:junglewood", 
-	item4="",
-	result="trucraft:wood"
-})
-
-truCraft.register_basic_craft({
-	item1="trucraft:glue", 
-	item2="trucraft:coal_dust", 
-	item3="default:aspen_wood", 
-	item4="",
-	result="trucraft:wood"
-})
-
-truCraft.register_dry({
-	item="trucraft:glue",
-	result="trucraft:polymer",
-	time=6
-})
-
-minetest.register_craft({
-	type="cooking",
-	output="trucraft:plastic",
-	recipe="trucraft:polymer"
-})
-
-truCraft.register_basic_craft({
-	item1="trucraft:plastic", 
-	item2="trucraft:steel_blade", 
-	item3="trucraft:steel_rod", 
-	item4="trucraft:steel_wedge",
-	result="trucraft:knife"
-})
+-- Очистка стандартных крафтов
+minetest.clear_craft({ output = "default:shovel_steel" })
+minetest.clear_craft({ output = "default:axe_steel" })
+minetest.clear_craft({ output = "default:pick_steel" })
+minetest.clear_craft({ output = "default:sword_steel" })
+minetest.clear_craft({ output = "default:shovel_bronze" })
+minetest.clear_craft({ output = "default:axe_bronze" })
+minetest.clear_craft({ output = "default:pick_bronze" })
+minetest.clear_craft({ output = "default:sword_bronze" })

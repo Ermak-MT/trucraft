@@ -1804,38 +1804,6 @@ minetest.register_node("trucraft:rack", {
 		local meta = minetest.get_meta(pos)
 		d(pos)
 	end,
-	on_construct = function(pos)
-		local meta=minetest.get_meta(pos)
-		meta:set_string("fire", "false")
-		meta:set_int("looptime", 0)
-		meta:set_int("calltime", 0)
-		local timer=minetest.get_node_timer(pos)
-		timer:set(1, 0)
-	end,
-	on_timer = function(pos, elapsed)
-		local meta=minetest.get_meta(pos)
-		meta:set_int("looptime", meta:get_int("looptime")+1)
-		if meta:get_int("looptime") > meta:get_int("calltime") then
-			meta:set_string("fire", "false")
-			meta:set_int("looptime", 0)
-			meta:set_int("calltime", 0)
-		end
-		if meta:get_string("cooking")=="true" then
-			meta:set_string("infotext", "Progress: "..meta:get_int("cooktime_elapsed").."/"..meta:get_int("cooktime"))
-			meta:set_int("cooktime_elapsed", meta:get_int("cooktime_elapsed")+1)
-			if meta:get_int("cooktime_elapsed")>meta:get_int("cooktime") then
-				meta:set_string("item", meta:get_string("result"))
-				up(pos)
-				meta:set_string("cooking", "false")
-				meta:set_int("cooktime", 0)
-				meta:set_int("cooktime_elapsed", 0)
-				meta:set_string("result", "")
-				meta:set_string("infotext", "finished")
-			end
-		end
-		local timer=minetest.get_node_timer(pos)
-		timer:set(1, 0)
-	end
 })
 
 minetest.register_node("trucraft:wood", {
@@ -1846,4 +1814,305 @@ minetest.register_node("trucraft:wood", {
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2, wood = 1},
 	sounds = default.node_sound_wood_defaults(),
+})
+
+-- Переопределение древесины
+minetest.override_item("ethereal:yellow_trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("ethereal:willow_trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("ethereal:sakura_trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("ethereal:redwood_trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("ethereal:palm_trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("ethereal:olive_trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("ethereal:frost_tree", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("ethereal:birch_trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("ethereal:banana_trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("baldcypress:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("cherrytree:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("chestnuttree:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("clementinetree:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("jacaranda:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("larch:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("lemontree:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("mahogany:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("plumtree:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("pomegranate:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
+})
+
+minetest.override_item("palm:trunk", {
+    groups = {tree = 1, choppy = 3, oddly_breakable_by_hand = 0, flammable = 3},
+    	on_punch = function(pos, node, player, pointed_thing)
+		if player:get_wielded_item():get_name() == "trucraft:rock_stone" or player:get_wielded_item():get_name() == "trucraft:rock_sandstone" or player:get_wielded_item():get_name() == "trucraft:rock_desert_stone" then
+			minetest.set_node(pos, {name="trucraft:table"})
+		end
+		if player:get_wielded_item():get_name() == "trucraft:string2" then
+			minetest.set_node(pos, {name="trucraft:station"})
+			local stack=player:get_wielded_item()
+			stack:take_item()
+			player:set_wielded_item(stack)
+		end
+	end
 })
