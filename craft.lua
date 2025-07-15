@@ -729,3 +729,64 @@ truCraft.register_basic_craft({
 	item4="trucraft:steel_wedge",
 	result="trucraft:knife"
 })
+
+minetest.clear_craft({ output = "default:shovel_steel" })
+minetest.clear_craft({ output = "default:axe_steel" })
+minetest.clear_craft({ output = "default:pick_steel" })
+minetest.clear_craft({ output = "default:sword_steel" })
+
+minetest.clear_craft({ output = "default:shovel_bronze" })
+minetest.clear_craft({ output = "default:axe_bronze" })
+minetest.clear_craft({ output = "default:pick_bronze" })
+minetest.clear_craft({ output = "default:sword_bronze" })
+
+minetest.clear_craft({ output = "default:sword_stone" })
+minetest.clear_craft({ output = "default:pick_stone" })
+minetest.clear_craft({ output = "default:axe_stone" })
+minetest.clear_craft({ output = "default:shovel_stohe" })
+minetest.clear_craft({ output = "farming:hoe_stone" })
+
+minetest.register_craft({
+	output = "default:sword_stone",
+	recipe = {
+		{"", "default:flint", ""},
+		{"", "default:flint", ""},
+		{"", "default:stick", ""},
+	},
+})
+
+minetest.register_craft({
+	output = "default:pick_stone",
+	recipe = {
+		{"default:flint", "default:flint", "default:flint"},
+		{"", "default:stick", ""},
+		{"", "default:stick", ""},
+	},
+})
+
+minetest.register_craft({
+	output = "default:axe_stone",
+	recipe = {
+		{"default:flint", "default:flint", ""},
+		{"default:flint", "default:stick", ""},
+		{"", "default:stick", ""},
+	},
+})
+
+minetest.register_craft({
+	output = "default:shovel_stone",
+	recipe = {
+		{"", "default:flint", ""},
+		{"", "default:stick", ""},
+		{"", "default:stick", ""},
+	},
+})
+
+minetest.register_craft({
+	output = "farming:hoe_stone",
+	recipe = {
+		{"default:flint", "default:flint", ""},
+		{"", "default:stick", ""},
+		{"", "default:stick", ""},
+	},
+})

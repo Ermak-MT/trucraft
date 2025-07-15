@@ -1538,6 +1538,19 @@ minetest.register_node("trucraft:hamper", {
 	end,
 })
 
+minetest.override_item("default:gravel", {
+	description = S("Gravel"),
+	tiles = {"default_gravel.png"},
+	groups = {crumbly = 2, falling_node = 1},
+	sounds = default.node_sound_gravel_defaults(),
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"default:gravel"}}
+		}
+	}
+})
+
 minetest.register_node("trucraft:bin", {
 	description = S("Storage Bin"),
 	tiles={"poly_tccrate2.png"},
