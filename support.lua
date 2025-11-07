@@ -14,7 +14,7 @@ papyruswalk = minetest.settings:get_bool("ethereal.papyruswalk", false)
 
 
 
-cooltrees_list = {"bamboo", "birch", "lemontree", "cherrytree", "palm",
+cooltrees_list = {"bamboo", "oak", "birch", "lemontree", "cherrytree", "palm",
 "chestnuttree", "clementinetree", "ebony", "jacaranda", "larch", "mahogany"}
 
 cherry_repeats = 0
@@ -55,6 +55,7 @@ treegroups = {
 	["sakura_trunk"] = {tree = 1, choppy = 2, flammable = 2},
 	["willow_trunk"] = {tree = 1, choppy = 2, flammable = 2},
 	["redwood_trunk"] = {tree = 1, choppy = 2, flammable = 2},
+	["oak_trunk"] = {tree = 1, choppy = 2, flammable = 2},
 	["frost_tree"] = {tree = 1, choppy = 2, puts_out_fire = 1},
 	["yellow_trunk"] = {tree = 1, choppy = 2, puts_out_fire = 1},
 	["palm_trunk"] = {tree = 1, choppy = 2, flammable = 2},
